@@ -1,0 +1,79 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/waltergalloneto/Documents/GitHub/Boat-Game/Boat Game Final
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+63949
+Successfully changed project path to: /Users/waltergalloneto/Documents/GitHub/Boat-Game/Boat Game Final
+/Users/waltergalloneto/Documents/GitHub/Boat-Game/Boat Game Final
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 25.27 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/waltergalloneto/Documents/GitHub/Boat-Game/Boat Game Final/Assets
+GfxDevice: creating device client; threaded=0
+2021-11-29 11:23:42.236 Unity[66539:6092427] (null) preferred device: Apple M1 (high power)
+2021-11-29 11:23:42.236 Unity[66539:6092427] Metal devices available: 1
+2021-11-29 11:23:42.236 Unity[66539:6092427] 0: Apple M1 (high power)
+2021-11-29 11:23:42.237 Unity[66539:6092427] Using device Apple M1 (high power)
+Initializing Metal device caps: Apple M1
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56539
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000388 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 26.17 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.895 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000234 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.520 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.21 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1271 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 187.3 MB.
+System memory in use after: 187.4 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 1739.
+Total: 1.362500 ms (FindLiveObjects: 0.113459 ms CreateObjectMapping: 0.026041 ms MarkObjects: 1.134792 ms  DeleteObjects: 0.087291 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Asset/Flares/Flare 2.flare
+  artifactKey: Guid(bc8d761cacc3740fbab1c96eb12fe12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Asset/Flares/Flare 2.flare using Guid(bc8d761cacc3740fbab1c96eb12fe12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '047f86bc32b95c4735e21cdcb2bc7a54') in 0.430759 seconds
+  Import took 0.433289 seconds .
+

@@ -5,14 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
-    private float speed = 30.0f;
+    public float speed = 30.0f;
     private float turnSpeed = 30.0f;
     private float horizontalInput;
     private float forwardInput;
-    public bool isOnGround = true;
+    public bool isOnWater = true;
     public float jumpforce = 10;
     public float gravityModifyer;
     public bool hasBoost = false;
+    public List<GameObject> Checkpoints = new List<GameObject>();
+    public GameObject activeCheckpoint;
+    public bool finished;
+    public bool hasJumpedOnce = false;
 
         // Start is called before the first frame update
         void Start()
@@ -35,11 +39,57 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && hasBoost)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnWater && hasBoost && hasJumpedOnce == false)
         {
 
             playerRB.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
-            isOnGround = false;
+            isOnWater = false;
+            hasJumpedOnce = true;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            transform.position = activeCheckpoint.transform.position;
+            transform.rotation = activeCheckpoint.transform.rotation;
+
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Ground") && hasBoost == false && finished == false)
+        {
+
+            isOnWater = true;
+            speed = 30;
+            turnSpeed = 30;
+
+        }
+
+        if (collision.gameObject.CompareTag("Ground") && hasBoost == true && finished == false)
+        {
+
+            isOnWater = true;
+            speed = 50;
+            turnSpeed = 30;
+
+        }
+
+        if (!collision.gameObject.CompareTag("Ground") && finished == false)
+        {
+
+            isOnWater = false;
+
+        }
+
+        if (collision.gameObject.CompareTag("Terrain") && isOnWater == false && finished == false)
+        {
+
+            speed = 1;
+            turnSpeed = 1;
 
         }
     }
@@ -50,7 +100,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
 
-            isOnGround = true;
+            isOnWater = true;
+            hasJumpedOnce = false;
 
         }
     }
@@ -65,6 +116,22 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(BoostCountdownRoutine());
             hasBoost = true;
+
+        }
+
+        if (other.CompareTag("Checkpoint"))
+        {
+
+            activeCheckpoint = other.gameObject;
+
+        }
+
+        if (other.CompareTag("Finish Line"))
+        {
+
+            finished = true;
+            speed = 0;
+            turnSpeed = 0;
 
         }
 
