@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-    public Vector3 currentCheckpoint;
+    public int gameMode = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +19,27 @@ public class GameManager : MonoBehaviour
     {
 
 
+
+    }
+
+    public void Phantom()
+    {
+
+        gameMode = 1;
+
+    }
+
+    public void Thrasher()
+    {
+
+        gameMode = 2;
+
+    }
+
+    public void Riptide()
+    {
+
+        gameMode = 3;
 
     }
 }
