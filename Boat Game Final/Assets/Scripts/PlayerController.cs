@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,14 @@ public class PlayerController : MonoBehaviour
     public float tempo;
     public ParticleSystem explosionParticle;
     public GameObject spawnPoint;
+    public float roughFinishTime;
+    public GameObject reset;
+    public GameObject timer;
+    public GameObject finishedText;
+    public GameObject restart;
+    public TextMeshProUGUI finalTime;
+    private AudioSource playerAudio;
+    public AudioClip jumpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +43,7 @@ public class PlayerController : MonoBehaviour
         Physics.gravity *= gravityModifyer;
         playerRB = GetComponent<Rigidbody>();
         forwardInput = Input.GetAxis("Vertical");
+        playerAudio = GetComponent<AudioSource>();
 
     }
 
@@ -98,6 +108,7 @@ public class PlayerController : MonoBehaviour
             isOnWater = false;
             hasJumpedOnce = true;
             explosionParticle.Play();
+            playerAudio.PlayOneShot(jumpSound, 1);
 
         }
 
@@ -106,6 +117,17 @@ public class PlayerController : MonoBehaviour
 
             transform.position = activeCheckpoint.transform.position;
             transform.rotation = activeCheckpoint.transform.rotation;
+
+        }
+
+        if (finished == true)
+        {
+     
+            reset.SetActive(false);
+            timer.SetActive(false);
+            finishedText.SetActive(true);
+            restart.SetActive(true);
+            finalTime.gameObject.SetActive(true);
 
         }
     }
@@ -165,6 +187,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Boost"))
         {
 
+            Destroy(other.gameObject);
             Boost();
             StartCoroutine(BoostCountdownRoutine());
             hasBoost = true;
@@ -183,6 +206,13 @@ public class PlayerController : MonoBehaviour
 
             finished = true;
             speed = 0;
+
+            float time = gameManager.time;
+            int min = (int)time;
+            float secs = time % 60;
+            int extraSecs = (int)secs;
+
+            finalTime.text = "Your time was: " + min / 60 + " minutes and " + extraSecs + " seconds";
 
         }
 
@@ -479,6 +509,15 @@ public class PlayerController : MonoBehaviour
         activeCheckpoint = spawnPoint;
         transform.position = spawnPoint.transform.position;
         transform.rotation = spawnPoint.transform.rotation;
+        TurnSpeed();
+        Speed();
+
+    }
+
+    public void Restart()
+    {
+
+        finished = false;
 
     }
 }
